@@ -1,20 +1,22 @@
 import express from 'express';
 import helmet from 'helmet';
-import cors from 'cors'; 
-import corsOptions from './config/corsConfig.js'; 
-import limiter from './middlewares/limiter.js';
-import helloRoute from './routes/helloRoute.js';
+import rateLimit from 'express-rate-limit';
+// import cors from 'cors'; 
+// import corsOptions from './config/corsConfig.js'; 
 
 const app = express();
 
 app.use(helmet());
 
-app.use(cors(corsOptions));
-
-
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
+});
 app.use(limiter);
 
-app.use('/api', helloRoute);
+app.get('/api/hello', (req, res) => {
+  res.json({ message: "Hello world" });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
