@@ -1,0 +1,29 @@
+{
+  "name": "tp-exo-2",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Une API Express.js sécurisée avec Helmet et express-rate-limit",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "express",
+    "helmet",
+    "rate-limit",
+    "API",
+    "security"
+  ],
+  "author": "Votre Nom",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.0",
+    "helmet": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
